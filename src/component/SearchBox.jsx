@@ -12,7 +12,7 @@ function SearchBox({ search, setSearch, setQuery }) {
         placeholder="search..."
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
-        className="border rounded-md p-2 w-full max-w-xs"
+        className="border-2 rounded-md p-2 w-full max-w-xs border-dashed border-red-500"
       />
       <button
         className="bg-red-300 mx-2 rounded-[25%] p-2 hover:cursor-pointer"

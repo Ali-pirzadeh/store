@@ -2,6 +2,15 @@ import React from 'react'
 import { createQueryObject } from '../helper/helper';
 import { FaListUl } from 'react-icons/fa';
 
+
+const categorys = [
+  { id: 1, type: "all" },
+  { id: 2, type: "electronics" },
+  { id: 3, type: "jewelery" },
+  { id: 4, type: "men's clothing" },
+  { id: 5, type: "women's clothing" },
+];
+
 function SidebarBox({ setQuery }) {
   const CategoryHandeler = (event) => {
     const { tagName } = event.target;
@@ -17,11 +26,7 @@ function SidebarBox({ setQuery }) {
         <p className="font-semibold">Categories</p>
       </div>
       <ul onClick={CategoryHandeler} className="space-y-2 cursor-pointer">
-        <li>All</li>
-        <li>electronics</li>
-        <li>jewelery</li>
-        <li>men's clothing</li>
-        <li>women's clothing</li>
+        {categorys.map((item) => (<li key={item.id} className="hover:text-red-400">{ item.type}</li>))}
       </ul>
     </div>
   );

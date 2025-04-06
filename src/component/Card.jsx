@@ -1,9 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TbListDetails, TbShoppingBagCheck } from "react-icons/tb";
+import { useCart } from "../context/CartContext";
 
 function Card({ data }) {
   const { id, title, description, image, price } = data;
+
+  const [state, dispatch] = useCart()
+  console.log(state);
+  
+  const clickHandeler = () => {
+    dispatch({ type: "ADD_ITEM", payload: data });
+  }
+
+
 
   const truncateTitle = (text, wordLimit) => {
     return (
@@ -32,7 +42,7 @@ function Card({ data }) {
             className="cursor-pointer hover:text-green-600/50"
           />
         </Link>
-        <button>
+        <button onClick={clickHandeler}>
           <TbShoppingBagCheck
             size={24}
             className="cursor-pointer hover:text-green-600/50"

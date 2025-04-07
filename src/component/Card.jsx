@@ -31,7 +31,7 @@ function Card({ data }) {
         <img
           src={image}
           alt={title}
-          className="w-32 h-32 rounded-full object-cover"
+          className="w-32 h-32 rounded-full object-contain"
         />
       </div>
       <h3 className="text-center font-semibold text-lg text-red-600">

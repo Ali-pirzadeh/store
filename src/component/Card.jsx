@@ -50,7 +50,7 @@ function Card({ data }) {
           <button onClick={() => clickHandeler("REMOVE_ITEM")}>
             <MdDeleteOutline
               size={24}
-              className="cursor-pointer hover:text-green-600/50"
+              className="cursor-pointer hover:text-red-600/50"
             />
           </button>
         )}
@@ -72,7 +72,7 @@ function Card({ data }) {
           </button>
         ) : (
           <button
-            className="cursor-pointer bg-red-500 py-1 px-2 rounded-xl text-xl text-center"
+            className="cursor-pointer bg-green-500 py-1 px-2 rounded-xl text-xl text-center"
             onClick={() => clickHandeler("INCREASE")}
           >
             +

@@ -55,11 +55,14 @@ function Card({ data }) {
           </button>
         )}
         {quantity > 1 && (
-          <button onClick={() => clickHandeler("DECREASE")}>-</button>
+          <button
+            className="cursor-pointer bg-red-500 py-1 px-2 rounded-xl text-xl text-center"
+            onClick={() => clickHandeler("DECREASE")}
+          >
+            -
+          </button>
         )}
-        {!!quantity && (
-          (<span className="text-xl text-center">{quantity}</span>)
-        )}
+        {!!quantity && <span className="text-xl text-center">{quantity}</span>}
         {quantity === 0 ? (
           <button onClick={() => clickHandeler("ADD_ITEM")}>
             <TbShoppingBagCheck
@@ -68,7 +71,12 @@ function Card({ data }) {
             />
           </button>
         ) : (
-          <button onClick={() => clickHandeler("INCREASE")}>+</button>
+          <button
+            className="cursor-pointer bg-red-500 py-1 px-2 rounded-xl text-xl text-center"
+            onClick={() => clickHandeler("INCREASE")}
+          >
+            +
+          </button>
         )}
       </div>
     </div>

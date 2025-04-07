@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TbListDetails, TbShoppingBagCheck } from "react-icons/tb";
 import { useCart } from "../context/CartContext";
+import { MdDeleteOutline } from "react-icons/md";
+import { productQuantity } from "../helper/helper";
 
 function Card({ data }) {
   const { id, title, description, image, price } = data;
@@ -9,11 +11,12 @@ function Card({ data }) {
   const [state, dispatch] = useCart()
   console.log(state);
   
-  const clickHandeler = () => {
-    dispatch({ type: "ADD_ITEM", payload: data });
-  }
+  const clickHandeler = ( type ) => {
+    dispatch({ type, payload: data });
+  };
 
-
+  const quantity = productQuantity(state, id);
+  console.log(quantity);
 
   const truncateTitle = (text, wordLimit) => {
     return (
@@ -42,12 +45,31 @@ function Card({ data }) {
             className="cursor-pointer hover:text-green-600/50"
           />
         </Link>
-        <button onClick={clickHandeler}>
-          <TbShoppingBagCheck
-            size={24}
-            className="cursor-pointer hover:text-green-600/50"
-          />
-        </button>
+
+        {quantity === 1 && (
+          <button onClick={() => clickHandeler("REMOVE_ITEM")}>
+            <MdDeleteOutline
+              size={24}
+              className="cursor-pointer hover:text-green-600/50"
+            />
+          </button>
+        )}
+        {quantity > 1 && (
+          <button onClick={() => clickHandeler("DECREASE")}>-</button>
+        )}
+        {!!quantity && (
+          (<span className="text-xl text-center">{quantity}</span>)
+        )}
+        {quantity === 0 ? (
+          <button onClick={() => clickHandeler("ADD_ITEM")}>
+            <TbShoppingBagCheck
+              size={24}
+              className="cursor-pointer hover:text-green-600/50"
+            />
+          </button>
+        ) : (
+          <button onClick={() => clickHandeler("INCREASE")}>+</button>
+        )}
       </div>
     </div>
   );

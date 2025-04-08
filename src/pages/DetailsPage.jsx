@@ -45,7 +45,7 @@ function DetailsPage() {
               {productDetail.price} ${" "}
             </span>
             <Link
-              to="/products"
+              to="/product"
               className="bg-red-500 text-black hover:text-white p-3 rounded-xl shadow-xl transition-all"
             >
               back to Shop

@@ -9,14 +9,12 @@ function Card({ data }) {
   const { id, title, description, image, price } = data;
 
   const [state, dispatch] = useCart()
-  console.log(state);
   
   const clickHandeler = ( type ) => {
     dispatch({ type, payload: data });
   };
 
   const quantity = productQuantity(state, id);
-  console.log(quantity);
 
   const truncateTitle = (text, wordLimit) => {
     return (

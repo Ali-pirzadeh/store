@@ -6,7 +6,7 @@ import Container from "../component/Container";
 function CheckOutPage() {
   const [state, dispatch] = useCart();
 
-  const clickHandeler = (type, payload) => dispatch({ type, data });
+  const clickHandeler = (type, payload) => dispatch({ type, payload });
 
   return (
     <Container>

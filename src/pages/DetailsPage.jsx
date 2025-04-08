@@ -30,7 +30,7 @@ function DetailsPage() {
           alt={productDetail.title}
           className="w-60 h-60 rounded-xl object-contain border-2 border-red-400 border-dashed p-2"
         />
-        <div className="border-2 border-red-400 border-dashed p-2 rounded-xl w-2/3 px-4">
+        <div className="border-2 border-red-200 border-dashed p-2 rounded-xl w-2/3 px-4">
           <h2 className="text-2xl text-red-400 mb-5 font-bold">
             {truncateTitle(productDetail.title, 3)}
           </h2>
